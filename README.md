@@ -1,6 +1,6 @@
 # Hackathon Nuwe v3 👩‍💻👨‍💻
 
-En esta Hackathon he decidido realizar la sección de Frontend haciendo uso para ello de tecnologías como ReactJS y NextJs.
+En esta Hackathon he decidido realizar la sección de Frontend haciendo uso para ello de tecnologías como ReactJs y NextJs.
 
 ## Descifrando las pistas iniciales
 
@@ -13,13 +13,13 @@ const datosFiltrados = mockData.filter((element) => element.last_name
 ==="Nuwe"); const primeraPista = datosFiltrados.length;
 ```
 
-- En el caso de la segunda pista, he partido de los elementos filtrados en el paso anterior para quedarme solo con el primer elemento del array. Despues mediante una expresión regular me he quedado unicamente con los números que conformaban el código identificador.
+- En el caso de la segunda pista, he partido de los elementos filtrados en el paso anterior para quedarme solo con el primer elemento del array. Despues mediante una expresión regular me he quedado unicamente con los números que conformaban el código identificativo.
 
 ```html
 const segundaPista = datosFiltrados[0].id.replace(/\D/g,'');
 ```
 
-- Para la última pista, he hecho uso de la función reduce. Mediante esta función he calculado el número máximo de la primera parte de las Ips en las cuales el objeto no tuviera mascota.
+- Para la última pista, he hecho uso de la función reduce. Mediante esta función he calculado el número máximo de la primera parte de las IPs en las cuales el objeto no tuviera mascota.
 
 ```html
 const datosSinMascota = mockData.filter((element) => !element.pet; const
@@ -35,9 +35,9 @@ Como he mencionado anteriormente para la realización de esta parte se ha hecho 
 
 Para la gestión del SEO se ha hecho uso de Next-seo configurando así los metadatos necesarios para optimizar el posicionamiento en buscadores.
 
-Como paquetes adicionales a los mencionados anteriormenete tambien se ha hecho uso de react-hot-toast para mostrar mensajes pop up al usuario cuando los datos introducidos no resulten correctos o para informar, por ejemplo, al usuario de que ha de introducir un nombre de usuario antes de realizar la busqueda o que el nombre de usuario introducido no existe.
+Como paquetes adicionales a los mencionados anteriormenete, tambien se ha hecho uso de react-hot-toast para mostrar mensajes pop up al usuario cuando los datos introducidos no resulten correctos o para informar, por ejemplo, al usuario de que ha de introducir un nombre de usuario antes de realizar la busqueda o que el nombre de usuario introducido no existe.
 
-Tambien se ha empleado el paquete react-coding-skeleton para intentar proporcionar una mejor experiencia de usuario enseñando al usuario en que secciones deberian aparecer los datos solicitados.
+Tambien se ha empleado el paquete react-coding-skeleton para intentar proporcionar una mejor experiencia de usuario. Para ello se enseña al usuario en que secciones deberian aparecer los datos solicitados.
 
 ### Estructura del proyecto
 
@@ -48,6 +48,8 @@ La estructura del proyecto es la siguiente:
 - **public**: Lugar donde se recogen los recursos públicos de la aplicación como imágenes, iconos,...
 - **styles**: Carpeta donde se recogen los aspectos comunes al estilo general de la aplicación. En este caso aqui se recogen los colores principales que componen la aplicación y las fuentes a utilizar de forma general. De esta forma realizar cambios generalizados sobre la aplicación resultaría más sencillo.
 - **utils**: Carpeta en la cual se recogen los archivos con funciones o constantes a utilizar por toda la aplicación. De forma que las funciones propias del negocio resulten más aisladas.
+- **pistas**: Código correspondiente a la sección explicada anteriormente.
+- **resources**: Carpeta que contiene los recursos proporcionados en el hackathon.
 
 ### Conexión Github
 
@@ -55,6 +57,12 @@ Para la recuperación de datos se ha hecho uso de la REST API pública ofrecida 
 
 - api.github.com/users/{nombre de usuario}: Para recopilar información propia del usuario como su avatar, el nombre de usuario, el número de followers,...
 - api.github.com/users/{nombre de usuario}/repos: Para obtener la información referida a los repositorios del usuario. A este endpoint solo se llama si previamente se verifica que existe el usuario, a fin de minimizar el número de llamadas. De este endpoint se extrae información como el nombre del repositorio, el código identificativo o la descripción en caso de contener.
+
+## Segunda parte
+
+En esta parte, además, se han añadido vistas para realizar el login y el registro del usuario. Al no existir una parte backend asociada para gestionar estos procesos, he hecho uso del local storage. Mientras que para mantener la sesión abierta he hecho uso de cookies.
+
+Para realizar el registro, el usuario unicamente ha de introducir un nombre de usuario valido, es decir, este nombre de usuario no debe existir en la lista de usuarios disponibles, sino se mostraría un pop up y debe contener una contraseña. Para la contraseña no se han contemplado restricciones pero se guarda encriptada a fin de mantener la seguridad de los usuarios.
 
 ### Despliegue
 
