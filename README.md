@@ -31,13 +31,13 @@ Consiguiendo de esta forma la siguiente contraseña: **9-129873-248**
 
 ## Primera parte
 
-Como he mencionado anteriormente para la realización de esta parte se ha hecho uso de las tecnologías ReactJs y NextJs. Además, a fin de mantener un mismo formato a lo largo de todo el proyecto y validar la calidad del código desarrollado se han configurado en el proyecto los paquetes eslint (haciendo uso del estilo Standard) y Prettier. Tambien se ha puesto Husky para que se verifique el estilo del código antes de poder realizar cualquier commit.
+Como he mencionado anteriormente para la realización de esta parte he hecho uso de las tecnologías ReactJs y NextJs. Además, a fin de mantener un mismo formato a lo largo de todo el proyecto y validar la calidad del código desarrollado he configurado en el proyecto los paquetes eslint (haciendo uso del estilo Standard) y Prettier. Tambien he puesto Husky para que se verifique el estilo del código antes de poder realizar cualquier commit.
 
-Para la gestión del SEO se ha hecho uso de Next-seo configurando así los metadatos necesarios para optimizar el posicionamiento en buscadores.
+Para la gestión del SEO he uso de Next-seo configurando así los metadatos necesarios para optimizar el posicionamiento en buscadores.
 
-Como paquetes adicionales a los mencionados anteriormenete, tambien se ha hecho uso de react-hot-toast para mostrar mensajes pop up al usuario cuando los datos introducidos no resulten correctos o para informar, por ejemplo, al usuario de que ha de introducir un nombre de usuario antes de realizar la busqueda o que el nombre de usuario introducido no existe.
+Como paquetes adicionales a los mencionados anteriormenete, tambien he hecho uso de react-hot-toast para mostrar mensajes pop up al usuario cuando los datos introducidos no resulten correctos o para informar, por ejemplo, al usuario de que ha de introducir un nombre de usuario antes de realizar la busqueda o que el nombre de usuario introducido no existe.
 
-Tambien se ha empleado el paquete react-coding-skeleton para intentar proporcionar una mejor experiencia de usuario. Para ello se enseña al usuario en que secciones deberian aparecer los datos solicitados.
+Tambien he empleado el paquete react-coding-skeleton para intentar proporcionar una mejor experiencia de usuario. Para ello se enseña al usuario en que secciones deberian aparecer los datos solicitados.
 
 ### Estructura del proyecto
 
@@ -53,16 +53,16 @@ La estructura del proyecto es la siguiente:
 
 ### Conexión Github
 
-Para la recuperación de datos se ha hecho uso de la REST API pública ofrecida por Github. En concreto, he hecho uso de dos endpoints:
+Para la recuperación de datos he hecho uso de la REST API pública ofrecida por Github. En concreto, he hecho uso de dos endpoints:
 
 - api.github.com/users/{nombre de usuario}: Para recopilar información propia del usuario como su avatar, el nombre de usuario, el número de followers,...
 - api.github.com/users/{nombre de usuario}/repos: Para obtener la información referida a los repositorios del usuario. A este endpoint solo se llama si previamente se verifica que existe el usuario, a fin de minimizar el número de llamadas. De este endpoint se extrae información como el nombre del repositorio, el código identificativo o la descripción en caso de contener.
 
 ## Segunda parte
 
-En esta parte, además, se han añadido vistas para realizar el login y el registro del usuario. Al no existir una parte backend asociada para gestionar estos procesos, he hecho uso del local storage. Mientras que para mantener la sesión abierta he hecho uso de cookies.
+En esta parte, además, he añadido vistas para realizar el login y el registro del usuario. Al no existir una parte backend asociada para gestionar estos procesos, he hecho uso del local storage. Mientras que para mantener la sesión abierta he hecho uso de cookies. Es decir, si el usuario accede a la seccion main de la aplicación sin haberse logueado antes se le redirigirá a la sección del login y viceversa.
 
-Para realizar el registro, el usuario unicamente ha de introducir un nombre de usuario valido, es decir, este nombre de usuario no debe existir en la lista de usuarios disponibles, sino se mostraría un pop up y debe contener una contraseña. Para la contraseña no se han contemplado restricciones pero se guarda encriptada a fin de mantener la seguridad de los usuarios.
+Para realizar el registro, el usuario unicamente ha de introducir un nombre de usuario valido y una contraseña. En cuanto al nombre de usuario, esté no debe existir en la lista de usuarios disponibles, sino se mostraría un pop up de error. Mientras que para la contraseña no se han contemplado restricciones pero se guarda encriptada a fin de mantener la seguridad de los usuarios.
 
 ### Despliegue
 
