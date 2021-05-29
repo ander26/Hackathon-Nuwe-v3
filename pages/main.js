@@ -1,18 +1,22 @@
-import Login from "components/Login";
-import Register from "components/Register";
+import RepositoriesList from "components/RepositoriesList";
+import SearchForm from "components/SearchForm";
+import UserCard from "components/UserCard";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function Home() {
-  const [register, setRegister] = useState(false);
+  const [userInfo, setUserInfo] = useState();
+  const [repositoriesInfo, setRepositoriesInfo] = useState();
   const router = useRouter();
 
   useEffect(() => {
-    if (document.cookie) {
-      router.push("/main");
+    if (!document.cookie) {
+      router.push("/");
     }
   }, []);
+
   return (
     <>
       <div>
@@ -23,23 +27,27 @@ export default function Home() {
 
         <main>
           <div className="content">
-            <div className="imageSection">
-              <div className="image">
-                <img
-                  src="/nuwe.jpeg"
-                  alt=" Logo Nuwe "
-                  width="100%"
-                  height="100%"
-                />
-              </div>
+            <div className="searchSection">
+              <Image
+                src="/searchImage.jpg"
+                alt="Imagen buscando información "
+                width={200}
+                height={200}
+                objectFit="contain"
+              />
+              <h1>Buscador información Github</h1>
+              <h3>
+                Desarrollo realizado para la primera y segunda parte del
+                hackathon realizado por Nuwe
+              </h3>
             </div>
-
-            <div className="loginContainer">
-              {!register ? (
-                <Login setRegister={setRegister} />
-              ) : (
-                <Register setRegister={setRegister} />
-              )}
+            <div className="resultsSection">
+              <SearchForm
+                setUserInfo={setUserInfo}
+                setRepositoriesInfo={setRepositoriesInfo}
+              />
+              <UserCard user={userInfo} />
+              <RepositoriesList repositories={repositoriesInfo} />
             </div>
           </div>
         </main>
@@ -63,7 +71,6 @@ export default function Home() {
             grid-template-columns: 1fr 1fr;
             column-gap: 30px;
             margin: 0px 20px;
-            z-index: 0;
           }
 
           main h1,
@@ -81,15 +88,11 @@ export default function Home() {
             margin-bottom: 30px;
           }
 
-          .image {
-            max-width: 100px;
-            max-height: 100px;
-          }
-
-          .imageSection {
+          .searchSection {
+            max-width: 500px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            flex-direction: column;
           }
 
           @media (max-width: 830px) {
@@ -97,7 +100,7 @@ export default function Home() {
               display: flex;
               flex-direction: column;
               width: 100%;
-              min-height: 100vh;
+
               margin: 0;
               box-shadow: none;
               padding: 10px;

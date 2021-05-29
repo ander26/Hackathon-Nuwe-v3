@@ -29,7 +29,6 @@ export const getGithubInformation = (
       setUserInfo(data);
       getGithubUserRepos(username).then((repos) => {
         if (repos) {
-          console.log(repos);
           setRepositoriesInfo(repos);
         }
       });
