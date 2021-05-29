@@ -18,7 +18,6 @@ const RepositoriesList = ({ repositories }) => {
           </>
         ) : (
           <>
-            {" "}
             {Array.apply(null, { length: 4 }).map((e, i) => (
               <React.Fragment key={i}>
                 <Repository />

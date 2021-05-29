@@ -50,6 +50,7 @@ La estructura del proyecto es la siguiente:
 - **utils**: Carpeta en la cual se recogen los archivos con funciones o constantes a utilizar por toda la aplicación. De forma que las funciones propias del negocio resulten más aisladas.
 - **pistas**: Código correspondiente a la sección explicada anteriormente.
 - **resources**: Carpeta que contiene los recursos proporcionados en el hackathon.
+- **tests**: Lugar donde se recogen los teses desarrollados. Para los teses he empleado Jest y react-testing-library.
 
 ### Conexión Github
 
