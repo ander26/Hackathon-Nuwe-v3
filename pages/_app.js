@@ -8,9 +8,9 @@ function MyApp({ Component, pageProps }) {
       <NextSeo
         title="Hackathon Nuwe"
         description="Desarrollo realizado para la primera y segunda parte del Hackathon de Nuwe"
-        canonical="http://localhost:3000/"
+        canonical="https://hackathon-nuwe-v3.vercel.app/"
         openGraph={{
-          url: "https://localhost:3000/",
+          url: "https://hackathon-nuwe-v3.vercel.app/",
           title: "Hackathon Nuwe",
           description:
             "Desarrollo realizado para la primera y segunda parte del Hackathon de Nuwe",
