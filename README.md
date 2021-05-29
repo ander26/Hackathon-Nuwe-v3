@@ -9,8 +9,8 @@ Antes de comenzar con el reto de desarrollo Frontend he tenido que descifrar una
 - Para la obtención de la primera pista he decidido filtrar los datos proporcionados para unicamente quedarme con aquellos en los que el last_name fuera Nuwe. Procediendo a contar despues el número de elementos que conformaban el array.
 
 ```html
-const datosFiltrados = mockData.filter((element) => element.last_name
-==="Nuwe"); const primeraPista = datosFiltrados.length;
+const datosFiltrados = mockData.filter((element) => element.last_name==="Nuwe"); 
+const primeraPista = datosFiltrados.length;
 ```
 
 - En el caso de la segunda pista, he partido de los elementos filtrados en el paso anterior para quedarme solo con el primer elemento del array. Despues mediante una expresión regular me he quedado unicamente con los números que conformaban el código identificativo.
@@ -22,9 +22,8 @@ const segundaPista = datosFiltrados[0].id.replace(/\D/g,'');
 - Para la última pista, he hecho uso de la función reduce. Mediante esta función he calculado el número máximo de la primera parte de las IPs en las cuales el objeto no tuviera mascota.
 
 ```html
-const datosSinMascota = mockData.filter((element) => !element.pet; const
-terceraPista = datosSinMascota.reduce((accumulator, currentValue) =>
-Math.max(accumulator, currentValue.ip.split(".")[0]),0);
+const datosSinMascota = mockData.filter((element) => !element.pet); 
+const terceraPista = datosSinMascota.reduce((accumulator, currentValue) => Math.max(accumulator, currentValue.ip.split(".")[0]),0);
 ```
 
 Consiguiendo de esta forma la siguiente contraseña: **9-129873-248**
