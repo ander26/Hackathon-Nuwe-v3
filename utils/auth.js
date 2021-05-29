@@ -1,3 +1,5 @@
+import jsSHA from "jssha";
+
 const localStorage = window.localStorage;
 
 export const checkUser = (username, password) => {
@@ -5,7 +7,7 @@ export const checkUser = (username, password) => {
   if (users) {
     const foundUser = users.find((user) => user.username === username);
     if (foundUser) {
-      if (foundUser.password === password) {
+      if (foundUser.password === calculateHash(password)) {
         return true;
       }
     }
@@ -31,7 +33,8 @@ export const saveUser = (username, password) => {
     newUsers = users;
   }
   if (!checkUserExists(username)) {
-    newUsers.push({ username, password });
+    const hashedPassword = calculateHash(password);
+    newUsers.push({ username, password: hashedPassword });
     localStorage.setItem("users", JSON.stringify(newUsers));
     return true;
   } else {
@@ -46,4 +49,12 @@ export const getUsers = () => {
   } else {
     return undefined;
   }
+};
+
+const calculateHash = (password) => {
+  // eslint-disable-next-line new-cap
+  const shaObj = new jsSHA("SHA-512", "TEXT", { encoding: "UTF8" });
+  shaObj.update(password);
+  const hash = shaObj.getHash("HEX");
+  return hash;
 };
