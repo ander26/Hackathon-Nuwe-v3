@@ -49,16 +49,18 @@ const Register = ({ setRegister }) => {
             id="password"
             name="password"
             placeholder="Contraseña"
+            autoComplete="on"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <label className="hidden" htmlFor="password">
+          <label className="hidden" htmlFor="passwordConfirm">
             Confirmar contraseña
           </label>
           <input
             type="password"
-            id="password"
-            name="password"
+            id="passwordConfirm"
+            name="passwordConfirm"
+            autoComplete="on"
             placeholder="Confirmar contraseña"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -112,6 +114,12 @@ const Register = ({ setRegister }) => {
 
         .buttonContainer button ~ button {
           margin-left: 10px;
+        }
+        @media (max-width: 830px) {
+          h1,
+          p {
+            text-align: center;
+          }
         }
       `}</style>
     </>

@@ -1,9 +1,9 @@
 import { colors } from "styles/theme";
 
-const MainButton = ({ children, onClick, submit }) => {
+const MainButton = ({ children, onClick, submit, style }) => {
   return (
     <>
-      <button type={submit ? "submit" : ""} onClick={onClick}>
+      <button type={submit ? "submit" : ""} onClick={onClick} style={style}>
         {children}
       </button>
       <style jsx>{`

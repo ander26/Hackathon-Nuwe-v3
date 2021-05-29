@@ -45,6 +45,7 @@ const Login = ({ setRegister }) => {
             id="password"
             name="password"
             placeholder="Contraseña"
+            autoComplete="on"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -87,6 +88,12 @@ const Login = ({ setRegister }) => {
           font-style: italic;
           color: ${colors.seconday};
           cursor: pointer;
+        }
+
+        @media (max-width: 830px) {
+          h1 {
+            text-align: center;
+          }
         }
       `}</style>
     </>

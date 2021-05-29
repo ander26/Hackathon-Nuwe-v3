@@ -5,6 +5,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import MainButton from "components/Button/MainButton";
 
 export default function Home() {
   const [userInfo, setUserInfo] = useState();
@@ -16,6 +17,11 @@ export default function Home() {
       router.push("/");
     }
   }, []);
+
+  const closeSession = () => {
+    document.cookie = 'username="";Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    router.push("/");
+  };
 
   return (
     <>
@@ -40,6 +46,12 @@ export default function Home() {
                 Desarrollo realizado para la primera y segunda parte del
                 hackathon realizado por Nuwe
               </h3>
+              <MainButton
+                onClick={closeSession}
+                style={{ marginBottom: "20px" }}
+              >
+                Cerrar sesión
+              </MainButton>
             </div>
             <div className="resultsSection">
               <SearchForm
@@ -70,6 +82,7 @@ export default function Home() {
             display: grid;
             grid-template-columns: 1fr 1fr;
             column-gap: 30px;
+            z-index: 0;
             margin: 0px 20px;
           }
 
